@@ -1,0 +1,179 @@
+@import "global_variable.scss";
+@import "grid.scss";
+
+.home-main-bg {
+  background-image: url(../images/whatsapp-new.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.main-header {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px #0000004d;
+  background-color: $white;
+  width: 250px;
+  border-radius: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 50px;
+      margin: 15px 0;
+    }
+  }
+}
+
+.main-footer {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+
+  p {
+    font-weight: 300;
+    margin: 0;
+    font-size: $fs-12;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.main-banner {
+  padding-top: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: $white;
+    font-size: $fs-35;
+    margin: 0;
+  }
+}
+
+.form-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  .form-main-inner {
+    margin: 25px 0;
+    padding: 40px;
+    border: 1px solid $primary-1;
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: 0 2px 5px #0000004d;
+    flex: 1;
+    .mat-form-field {
+      width: 100%;
+      margin: 10px 0;
+    }
+    .result {
+      font-size: $fs-18;
+      color: $primary-1;
+      font-weight: 500;
+      padding: 15px;
+      border: 1px solid $primary-2;
+      border-radius: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      resize: none;
+    }
+    .generate-btn {
+      background-color: $primary-2;
+      color: $white;
+      font-size: $fs-16;
+      &.mat-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+    .btn-icon-main {
+      &.copy {
+        border: 1px solid $primary-3;
+      }
+      &.open {
+        border: 1px solid $primary-4;
+      }
+      margin: 10px;
+      .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .btn-icon {
+          display: flex;
+          img {
+            height: 20px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    .copymsg {
+      padding: 5px;
+      margin: 0;
+      background-color: $primary-2;
+      color: $white;
+      border-radius: 10px;
+    }
+    img {
+      height: 60px;
+    }
+  }
+  .steps-list {
+    list-style: none;
+    color: $white;
+    text-align: left;
+    li {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 50px;
+        background-color: $primary-2;
+        border-radius: 50%;
+        font-size: $fs-26;
+        margin-right: 10px;
+      }
+      h3 {
+        margin: 0;
+        font-size: $fs-26;
+      }
+    }
+    p {
+      font-weight: 300;
+      margin: 0;
+      font-size: $fs-14;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+.green-snackbar {
+  background: $primary-2;
+  .mat-simple-snackbar {
+    color: $white;
+  }
+}

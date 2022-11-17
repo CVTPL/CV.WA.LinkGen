@@ -1,0 +1,52 @@
+// Color Palette
+$black: #000000;
+$white: #ffffff;
+$transparent: rgb(0 0 0 / 0%);
+
+$primary-1: #00a1f1;
+$primary-2: #5ab647;
+$primary-3: #ffbb00;
+$primary-4: #f65314;
+
+$secondary-1: #11110d;
+$secondary-2: #efefef;
+// Font Size Variables
+$fs-9: 9px;
+$fs-10: 10px;
+$fs-11: 11px;
+$fs-12: 12px;
+$fs-13: 13px;
+$fs-14: 14px;
+$fs-15: 15px;
+$fs-16: 16px;
+$fs-17: 17px;
+$fs-18: 18px;
+$fs-19: 19px;
+$fs-20: 20px;
+$fs-21: 21px;
+$fs-22: 22px;
+$fs-24: 24px;
+$fs-25: 25px;
+$fs-26: 26px;
+$fs-28: 28px;
+$fs-30: 30px;
+$fs-32: 32px;
+$fs-35: 35px;
+$fs-36: 36px;
+$fs-40: 40px;
+$fs-42: 42px;
+$fs-44: 44px;
+$fs-50: 50px;
+$fs-60: 60px;
+$fs-62: 62px;
+
+// Responsive Breakpoint Variable
+$breakpoints: (
+  xxs: 360px,
+  xs: 575px,
+  sm: 767px,
+  md: 991px,
+  lg: 1199px,
+  xl: 1400px,
+  xxl: 1600px,
+);
