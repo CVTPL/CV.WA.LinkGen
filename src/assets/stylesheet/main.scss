@@ -1,170 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200&display=swap");
 @import "global_variable.scss";
 @import "grid.scss";
 
+html,
+body {
+  font-family: "Poppins", sans-serif !important;
+}
 .home-main-bg {
-  background-color: $white;
+  background-image: url(../images/whatsapp-latest.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
-}
-.main-header {
-  position: absolute;
-  top: 10px;
-  right: 0;
-  left: 0;
-  z-index: 10;
-  box-shadow: 0 2px 5px #0000004d;
-  background-color: $white;
-  width: 250px;
-  border-radius: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  .logo {
+  .form-main {
     display: flex;
-    justify-content: center;
     align-items: center;
-    img {
-      height: 50px;
-      margin: 15px 0;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @media screen and (max-width: 767px) {
+      position: relative;
     }
-  }
-}
-
-.main-footer {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-
-  p {
-    font-weight: 300;
-    margin: 0;
-    font-size: $fs-12;
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-
-.main-banner {
-  padding-top: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h1 {
-    color: $white;
-    font-size: $fs-35;
-    margin: 0;
-  }
-}
-
-.form-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  .form-main-inner {
-    margin: 25px 0;
-    padding: 40px;
-    border: 1px solid $primary-1;
-    border-radius: 10px;
-    background-color: $white;
-    box-shadow: 0 2px 5px #0000004d;
-    flex: 1;
-    .mat-form-field {
-      width: 100%;
-      margin: 10px 0;
-    }
-    .result {
-      font-size: $fs-18;
-      color: $primary-1;
-      font-weight: 500;
-      padding: 15px;
-      border: 1px solid $primary-2;
+    .form-main-inner {
+      position: relative;
+      margin: 25px 0;
+      padding: 25px 25px 45px 25px;
+      border: 1px solid $primary-1;
       border-radius: 10px;
-      margin: 10px 0;
-      box-sizing: border-box;
-      resize: none;
-    }
-    .generate-btn {
-      background-color: $primary-2;
-      color: $white;
-      font-size: $fs-16;
-      &.mat-button-disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-    }
-    .btn-icon-main {
-      &.copy {
-        border: 1px solid $primary-3;
-      }
-      &.open {
-        border: 1px solid $primary-4;
-      }
-      margin: 10px;
-      .mat-button-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .btn-icon {
-          display: flex;
-          img {
-            height: 20px;
-            margin-right: 5px;
-          }
+      background-color: $semiwhite;
+      box-shadow: 0 2px 5px $shadowcolor;
+      flex: 1;
+      h1 {
+        color: $secondary-1;
+        font-size: $fs-25;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        margin: 15px 0;
+        @media screen and (max-width: 767px) {
+          margin: 7px 0;
         }
       }
-    }
-    .copymsg {
-      padding: 5px;
-      margin: 0;
-      background-color: $primary-2;
-      color: $white;
-      border-radius: 10px;
-    }
-    img {
-      height: 60px;
-    }
-  }
-  .steps-list {
-    list-style: none;
-    color: $white;
-    text-align: left;
-    li {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
-      border-radius: 10px;
-      margin: 25px 0;
-    }
-    .step-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50px;
-        width: 50px;
+      .mat-form-field {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .result {
+        font-size: $fs-18;
+        color: $primary-1;
+        font-weight: 500;
+        padding: 15px;
+        border: 1px solid $primary-2;
+        border-radius: 10px;
+        margin: 15px 0;
+        box-sizing: border-box;
+        resize: none;
+        @media screen and (max-width: 767px) {
+          margin: 7px 0;
+        }
+      }
+      .generate-btn {
         background-color: $primary-2;
-        border-radius: 50%;
-        font-size: $fs-26;
-        margin-right: 10px;
+        color: $white;
+        font-size: $fs-16;
+        margin: 15px 0;
+        &.mat-button-disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        @media screen and (max-width: 767px) {
+          margin: 7px 0;
+        }
       }
-      h3 {
+      .btn-icon-main {
+        margin: 15px 5px;
+        &.copy {
+          border: 1px solid $primary-3;
+        }
+        &.open {
+          border: 1px solid $primary-4;
+        }
+        .mat-button-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .btn-icon {
+            display: flex;
+            img {
+              height: 20px;
+              margin-right: 5px;
+            }
+          }
+        }
+        @media screen and (max-width: 767px) {
+          margin: 7px 5px;
+        }
+      }
+      .copymsg {
+        padding: 5px;
         margin: 0;
-        font-size: $fs-26;
+        background-color: $primary-2;
+        color: $white;
+        border-radius: 10px;
       }
-    }
-    p {
-      font-weight: 300;
-      margin: 0;
-      font-size: $fs-14;
-      color: rgba(255, 255, 255, 0.7);
+      .logo {
+        height: 60px;
+      }
+      .main-footer {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        p {
+          font-weight: 300;
+          margin: 0;
+          font-size: $fs-12;
+          color: $semiblack;
+          line-height: normal;
+        }
+      }
     }
   }
 }

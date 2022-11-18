@@ -14,12 +14,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.WaLinkForm = new FormGroup({
-      wanumber: new FormControl('', [
-        Validators.required,
-        Validators.pattern(
-          /^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}))$/
-        ),
-      ]),
+      wanumber: new FormControl('', [Validators.required]),
       watext: new FormControl(''),
     });
   }
@@ -43,30 +38,16 @@ export class FormComponent implements OnInit {
     console.log(event);
     if (event) {
       this.copymsg = true;
-      // this.openSnackBar();
     } else {
       this.copymsg = false;
     }
   }
-  // getErrorMessage() {
-  //   return this.wanumber.hasError('required')
-  //     ? 'This field is required.'
-  //     : this.wanumber.hasError('pattern')
-  //     ? 'This phone number is invalid.'
-  //     : '';
-  // }
   get wanumber(): FormControl {
     return this.WaLinkForm.get('wanumber') as FormControl;
   }
   get wavalue() {
     return this.WaLinkForm;
   }
-  durationInSeconds = 5;
-  // openSnackBar() {
-  //   this._snackBar.openFromComponent(FormComponent, {
-  //     duration: this.durationInSeconds * 1000,
-  //   });
-  // }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,

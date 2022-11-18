@@ -1,6 +1,9 @@
 // Color Palette
 $black: #000000;
+$semiblack: rgba(0, 0, 0, 0.7);
 $white: #ffffff;
+$semiwhite: rgba(255, 255, 255, 0.7);
+$shadowcolor: #0000004d;
 $transparent: rgb(0 0 0 / 0%);
 
 $primary-1: #00a1f1;
@@ -39,14 +42,3 @@ $fs-44: 44px;
 $fs-50: 50px;
 $fs-60: 60px;
 $fs-62: 62px;
-
-// Responsive Breakpoint Variable
-$breakpoints: (
-  xxs: 360px,
-  xs: 575px,
-  sm: 767px,
-  md: 991px,
-  lg: 1199px,
-  xl: 1400px,
-  xxl: 1600px,
-);
