@@ -16,6 +16,8 @@
                     formControlName="wanumber"
                     type="number"
                     maxlength="10"
+                    (keypress)="keyPressNumbers($event)"
+                    (paste)="keyPressNumbers($event)"
                   />
                   <mat-error
                     *ngIf="wanumber.errors?.['required'] && (wanumber.touched || wanumber.dirty)"
