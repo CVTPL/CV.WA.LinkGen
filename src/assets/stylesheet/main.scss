@@ -1,173 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200&display=swap");
 @import "global_variable.scss";
 @import "grid.scss";
 
+html,
+body {
+  font-family: "Poppins", sans-serif !important;
+}
 .home-main-bg {
-  background-image: url(../images/whatsapp-new.svg);
+  background-image: url(../images/whatsapp-latest.svg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-}
-.main-header {
-  position: absolute;
-  top: 10px;
-  right: 0;
-  left: 0;
-  z-index: 10;
-  box-shadow: 0 2px 5px #0000004d;
-  background-color: $white;
-  width: 250px;
-  border-radius: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      height: 50px;
-      margin: 15px 0;
-    }
-  }
-}
-
-.main-footer {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-
-  p {
-    font-weight: 300;
-    margin: 0;
-    font-size: $fs-12;
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-
-.main-banner {
-  padding-top: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h1 {
-    color: $white;
-    font-size: $fs-35;
-    margin: 0;
-  }
-}
-
-.form-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  .form-main-inner {
-    margin: 25px 0;
-    padding: 40px;
-    border: 1px solid $primary-1;
-    border-radius: 10px;
+  .main-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px $shadowcolor;
     background-color: $white;
-    box-shadow: 0 2px 5px #0000004d;
-    flex: 1;
-    .mat-form-field {
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        height: 50px;
+        margin: 15px 0;
+      }
+    }
+  }
+  .form-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0;
+    .w-100 {
       width: 100%;
-      margin: 10px 0;
     }
-    .result {
-      font-size: $fs-18;
-      color: $primary-1;
-      font-weight: 500;
-      padding: 15px;
-      border: 1px solid $primary-2;
+    .form-main-inner {
+      margin: 25px 0;
       border-radius: 10px;
-      margin: 10px 0;
-      box-sizing: border-box;
-      resize: none;
-    }
-    .generate-btn {
-      background-color: $primary-2;
-      color: $white;
-      font-size: $fs-16;
-      &.mat-button-disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
+      background-color: rgba($color: $white, $alpha: 0.4);
+      box-shadow: 0 2px 5px $shadowcolor;
+      .heading {
+        padding: 10px 0;
+        background-color: $primary-1;
+        border-radius: 10px 10px 0 0;
       }
-    }
-    .btn-icon-main {
-      &.copy {
-        border: 1px solid $primary-3;
+      h1 {
+        color: $white;
+        font-size: $fs-26;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
       }
-      &.open {
-        border: 1px solid $primary-4;
-      }
-      margin: 10px;
-      .mat-button-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .btn-icon {
-          display: flex;
-          img {
-            height: 20px;
-            margin-right: 5px;
+      .form-div {
+        padding: 40px;
+        border: 3px solid $primary-1;
+        border-radius: 0 0 10px 10px;
+        .mat-form-field {
+          width: 100%;
+          margin: 10px 0;
+          font-family: "Poppins", sans-serif;
+        }
+        .result {
+          font-size: $fs-18;
+          color: $primary-1;
+          font-weight: 500;
+          padding: 15px;
+          border: 1px solid $primary-2;
+          border-radius: 10px;
+          margin: 15px 0;
+          box-sizing: border-box;
+          resize: none;
+          font-family: "Poppins", sans-serif;
+          @media screen and (max-width: 480px) {
+            margin: 10px 0;
           }
+        }
+        .generate-btn {
+          background-color: $primary-2;
+          color: $white;
+          font-size: $fs-16;
+          font-family: "Poppins", sans-serif;
+          &.mat-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+        }
+        .btn-icon-main {
+          font-family: "Poppins", sans-serif;
+          &.copy {
+            border: 1px solid $primary-3;
+          }
+          &.open {
+            border: 1px solid $primary-4;
+          }
+          margin: 15px 10px;
+          .mat-button-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btn-icon {
+              display: flex;
+              img {
+                height: 20px;
+                margin-right: 5px;
+              }
+            }
+          }
+          @media screen and (max-width: 1200px) {
+            margin: 15px 2px;
+            font-size: $fs-14;
+          }
+          @media screen and (max-width: 480px) {
+            margin: 5px;
+          }
+        }
+        .copymsg {
+          font-family: "Poppins", sans-serif;
+          padding: 5px;
+          margin: 0;
+          background-color: $primary-2;
+          color: $white;
+          border-radius: 10px;
+        }
+        img {
+          height: 60px;
+        }
+        @media screen and (max-width: 1200px) {
+          padding: 30px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        margin: 20px 0;
+      }
+    }
+    .steps-list {
+      list-style: none;
+      color: $white;
+      text-align: left;
+      padding: 0;
+      li {
+        padding: 20px;
+        background-color: rgba($color: $white, $alpha: 0.4);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        margin: 25px 0;
+        box-shadow: 0 2px 5px $shadowcolor;
+        &:nth-child(1) {
+          border: 1px solid $primary-2;
+          .step-header {
+            span {
+              background-color: $primary-2;
+            }
+          }
+        }
+        &:nth-child(2) {
+          border: 1px solid $primary-3;
+          .step-header {
+            span {
+              background-color: $primary-3;
+            }
+          }
+        }
+        &:nth-child(3) {
+          border: 1px solid $primary-4;
+          .step-header {
+            span {
+              background-color: $primary-4;
+            }
+          }
+        }
+        .step-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 50px;
+            min-width: 50px;
+            min-height: 50px;
+            background-color: $primary-2;
+            border-radius: 50%;
+            font-size: $fs-26;
+            margin-right: 10px;
+            font-family: "Poppins", sans-serif;
+          }
+          h3 {
+            margin: 0;
+            font-size: $fs-22;
+            color: $secondary-1;
+            font-family: "Poppins", sans-serif;
+          }
+        }
+        p {
+          font-weight: 300;
+          margin: 0;
+          font-size: $fs-12;
+          color: $semiblack;
+          font-family: "Poppins", sans-serif;
+        }
+        @media screen and (max-width: 480px) {
+          margin: 15px 0;
         }
       }
     }
-    .copymsg {
-      padding: 5px;
-      margin: 0;
-      background-color: $primary-2;
-      color: $white;
-      border-radius: 10px;
+    @media screen and (max-width: 991px) {
+      padding-bottom: 0;
     }
-    img {
-      height: 60px;
+    @media screen and (max-width: 480px) {
+      padding-top: 80px;
     }
   }
-  .steps-list {
-    list-style: none;
-    color: $white;
-    text-align: left;
-    li {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
-      border-radius: 10px;
-      margin: 25px 0;
-    }
-    .step-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50px;
-        width: 50px;
-        background-color: $primary-2;
-        border-radius: 50%;
-        font-size: $fs-26;
-        margin-right: 10px;
-      }
-      h3 {
-        margin: 0;
-        font-size: $fs-26;
-      }
-    }
+  .main-footer {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: $white;
+    text-align: center;
     p {
       font-weight: 300;
       margin: 0;
-      font-size: $fs-14;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: $fs-12;
+      color: $semiblack;
+      font-family: "Poppins", sans-serif;
+    }
+    @media screen and (max-width: 991px) {
+      position: relative;
     }
   }
 }
@@ -175,5 +245,6 @@
   background: $primary-2;
   .mat-simple-snackbar {
     color: $white;
+    font-family: "Poppins", sans-serif;
   }
 }

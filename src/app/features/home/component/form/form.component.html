@@ -1,127 +1,75 @@
-<div class="form-main">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 d-flex align-items-center">
-        <div class="form-main-inner">
-          <img class="img-responsive" src="../assets/images/logo.svg" />
-          <form [formGroup]="WaLinkForm" (ngSubmit)="onSubmit()">
-            <h2>Create Your WhatsApp Chat Link</h2>
-            <div class="row">
-              <div class="col">
-                <mat-form-field appearance="outline">
-                  <mat-label>Your WhatsApp Number</mat-label>
-                  <input
-                    matInput
-                    placeholder="Enter value"
-                    formControlName="wanumber"
-                    type="number"
-                    maxlength="10"
-                  />
-                  <mat-error
-                    *ngIf="wanumber.errors?.['required'] && (wanumber.touched || wanumber.dirty)"
-                    >This field is required.</mat-error
-                  >
-                  <mat-error
-                    *ngIf="wanumber.errors?.['pattern'] && (wanumber.touched || wanumber.dirty)"
-                    >This phone number is invalid.</mat-error
-                  >
-                  <!-- <mat-error *ngIf="wanumber.invalid">{{
-                  getErrorMessage()
-                }}</mat-error> -->
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <mat-form-field appearance="outline">
-                  <mat-label>Welcome Message (Optional)</mat-label>
-                  <textarea matInput formControlName="watext"></textarea>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <button
-                  [disabled]="WaLinkForm.invalid"
-                  class="generate-btn"
-                  mat-raised-button
-                >
-                  Generate WhatsApp Chat Link
-                </button>
-              </div>
-            </div>
-          </form>
-          <ng-container *ngIf="generatedLink">
-            <textarea
-              class="result"
-              [(ngModel)]="generatedLink"
+<div class="form-main-inner">
+  <div class="heading">
+    <h1>WhatsApp Link Generator</h1>
+  </div>
+  <div class="form-div">
+    <form [formGroup]="WaLinkForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Your WhatsApp Number</mat-label>
+            <input
               matInput
-            ></textarea>
-
-            <button
-              class="btn-icon-main copy"
-              mat-stroked-button
-              [cdkCopyToClipboard]="generatedLink"
-              (cdkCopyToClipboardCopied)="copyfun($event)"
-              (click)="openSnackBar('Copied Successfully!!', '')"
+              placeholder="Enter value"
+              formControlName="wanumber"
+              type="number"
+              (keypress)="keyPressNumbers($event)"
+              (paste)="keyPressNumbers($event)"
+            />
+            <mat-error
+              *ngIf="wanumber.errors?.['required'] && (wanumber.touched || wanumber.dirty)"
+              >This field is required.</mat-error
             >
-              <span class="btn-icon"
-                ><img src="../../../../../assets/images/copy.svg"
-              /></span>
-              <span class="btn-text">Copy to clipboard</span>
-            </button>
-            <!-- <p class="copymsg" *ngIf="copymsg">copied successfully</p> -->
-            <a
-              target="_blank"
-              class="btn-icon-main open"
-              mat-stroked-button
-              href="{{ generatedLink }}"
-            >
-              <span class="btn-icon"
-                ><img src="../../../../../assets/images/whatsapp.svg"
-              /></span>
-              <span class="btn-text">Open on WhatsApp</span></a
-            >
-          </ng-container>
+          </mat-form-field>
         </div>
       </div>
-      <div class="col-md-7 d-flex align-items-center">
-        <ul class="steps-list">
-          <li>
-            <div class="step-header">
-              <span>1</span>
-              <h3>Enter your whatsapp number</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Adipiscing diam donec adipiscing tristique risus.
-            </p>
-          </li>
-          <li>
-            <div class="step-header">
-              <span>2</span>
-              <h3>Now add a pre-filled message(optional).</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Adipiscing diam donec adipiscing tristique risus.
-            </p>
-          </li>
-          <li>
-            <div class="step-header">
-              <span>3</span>
-              <h3>Click on the “Generate WhatsApp Chat Link” button!</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Adipiscing diam donec adipiscing tristique risus.
-            </p>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Welcome Message (Optional)</mat-label>
+            <textarea matInput formControlName="watext"></textarea>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col">
+          <button
+            [disabled]="WaLinkForm.invalid"
+            class="generate-btn"
+            mat-raised-button
+          >
+            Generate WhatsApp Chat Link
+          </button>
+        </div>
+      </div>
+    </form>
+    <ng-container *ngIf="generatedLink">
+      <textarea class="result" [(ngModel)]="generatedLink" matInput></textarea>
+
+      <button
+        class="btn-icon-main copy"
+        mat-stroked-button
+        [cdkCopyToClipboard]="generatedLink"
+        (cdkCopyToClipboardCopied)="copyfun($event)"
+        (click)="openSnackBar('Copied Successfully!!', '')"
+      >
+        <span class="btn-icon"
+          ><img src="../../../../../assets/images/copy.svg"
+        /></span>
+        <span class="btn-text">Copy to clipboard</span>
+      </button>
+
+      <a
+        target="_blank"
+        class="btn-icon-main open"
+        mat-stroked-button
+        href="{{ generatedLink }}"
+      >
+        <span class="btn-icon"
+          ><img src="../../../../../assets/images/whatsapp.svg"
+        /></span>
+        <span class="btn-text">Open on WhatsApp</span></a
+      >
+    </ng-container>
   </div>
 </div>
