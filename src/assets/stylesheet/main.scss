@@ -63,6 +63,13 @@ body {
           width: 100%;
           margin: 10px 0;
           font-family: "Poppins", sans-serif;
+          input[type="number"].mat-input-element::-webkit-outer-spin-button,
+          input[type="number"].mat-input-element::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+          }
+          input[type="number"].mat-input-element {
+            -moz-appearance: textfield;
+          }
         }
         .result {
           font-size: $fs-18;
