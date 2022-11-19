@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.WaLinkForm = new FormGroup({
       wanumber: new FormControl('', [Validators.required]),
-      watext: new FormControl(''),
+      watext: new FormControl('Hello there!'),
     });
   }
 

@@ -3,7 +3,7 @@
     <h1>WhatsApp Link Generator</h1>
   </div>
   <div class="form-div">
-    <form [formGroup]="WaLinkForm" (ngSubmit)="onSubmit()">
+    <form class="form-tag" [formGroup]="WaLinkForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col">
           <mat-form-field appearance="outline">
@@ -44,32 +44,38 @@
       </div>
     </form>
     <ng-container *ngIf="generatedLink">
-      <textarea class="result" [(ngModel)]="generatedLink" matInput></textarea>
+      <div class="result-box">
+        <textarea
+          class="result"
+          [(ngModel)]="generatedLink"
+          matInput
+        ></textarea>
 
-      <button
-        class="btn-icon-main copy"
-        mat-stroked-button
-        [cdkCopyToClipboard]="generatedLink"
-        (cdkCopyToClipboardCopied)="copyfun($event)"
-        (click)="openSnackBar('Copied Successfully!!', '')"
-      >
-        <span class="btn-icon"
-          ><img src="../../../../../assets/images/copy.svg"
-        /></span>
-        <span class="btn-text">Copy to clipboard</span>
-      </button>
+        <button
+          class="btn-icon-main copy"
+          mat-stroked-button
+          [cdkCopyToClipboard]="generatedLink"
+          (cdkCopyToClipboardCopied)="copyfun($event)"
+          (click)="openSnackBar('Copied Successfully!!', '')"
+        >
+          <span class="btn-icon"
+            ><img src="../../../../../assets/images/copy.svg"
+          /></span>
+          <span class="btn-text">Copy to clipboard</span>
+        </button>
 
-      <a
-        target="_blank"
-        class="btn-icon-main open"
-        mat-stroked-button
-        href="{{ generatedLink }}"
-      >
-        <span class="btn-icon"
-          ><img src="../../../../../assets/images/whatsapp.svg"
-        /></span>
-        <span class="btn-text">Open on WhatsApp</span></a
-      >
+        <a
+          target="_blank"
+          class="btn-icon-main open"
+          mat-stroked-button
+          href="{{ generatedLink }}"
+        >
+          <span class="btn-icon"
+            ><img src="../../../../../assets/images/whatsapp.svg"
+          /></span>
+          <span class="btn-text">Open on WhatsApp</span></a
+        >
+      </div>
     </ng-container>
   </div>
 </div>
