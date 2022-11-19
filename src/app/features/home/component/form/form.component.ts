@@ -24,18 +24,11 @@ export class FormComponent implements OnInit {
     var querystring = '?text=';
     var numval = this.wavalue.controls['wanumber'].value;
     var textval = this.wavalue.controls['watext'].value;
-    // console.log(numval);
-    // console.log(textval);
-
     var final = urlprefix + numval + querystring + textval;
-
-    //console.log(final);
-
     this.generatedLink = final;
   }
 
   copyfun(event: any) {
-    //console.log(event);
     if (event) {
       this.copymsg = true;
     } else {
@@ -59,5 +52,14 @@ export class FormComponent implements OnInit {
     if (event.which < 48 || event.which > 57) {
       event.preventDefault();
     }
+  }
+  onPaste(event: ClipboardEvent) {
+    var pastedValue = event.clipboardData?.getData('text');
+    var newVal = pastedValue?.replace(/[^A-Z0-9]+/gi, '');
+    setTimeout(() => {
+      this.WaLinkForm.patchValue({
+        wanumber: newVal,
+      });
+    }, 100);
   }
 }
