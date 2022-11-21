@@ -13,6 +13,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StepsComponent } from './component/steps/steps.component';
+import { Ng2TelInputModule } from 'ng2-tel-input';
 
 @NgModule({
   declarations: [HomeComponent, FormComponent, StepsComponent],
@@ -27,6 +28,7 @@ import { StepsComponent } from './component/steps/steps.component';
     FormsModule,
     MatIconModule,
     MatSnackBarModule,
+    Ng2TelInputModule,
   ],
 })
 export class HomeModule {}

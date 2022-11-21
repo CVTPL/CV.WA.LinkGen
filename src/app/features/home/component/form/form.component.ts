@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
@@ -10,8 +10,8 @@ export class FormComponent implements OnInit {
   WaLinkForm!: FormGroup;
   generatedLink: any;
   copymsg: boolean = false;
+  DialCode: any;
   constructor(private _snackBar: MatSnackBar) {}
-
   ngOnInit(): void {
     this.WaLinkForm = new FormGroup({
       wanumber: new FormControl('', [Validators.required]),
@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
     var querystring = '?text=';
     var numval = this.wavalue.controls['wanumber'].value;
     var textval = this.wavalue.controls['watext'].value;
-    var final = urlprefix + numval + querystring + textval;
+    var final = urlprefix + this.DialCode + numval + querystring + textval;
     this.generatedLink = final;
   }
 
@@ -61,5 +61,11 @@ export class FormComponent implements OnInit {
         wanumber: newVal,
       });
     }, 100);
+  }
+  telInputObject(obj: any) {
+    this.DialCode = obj.s.dialCode;
+  }
+  onCountryChange(event: any) {
+    this.DialCode = event.dialCode;
   }
 }
