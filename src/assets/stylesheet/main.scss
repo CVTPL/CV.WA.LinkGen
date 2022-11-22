@@ -155,6 +155,10 @@ body {
           .mat-form-field {
             .mat-form-field-label-wrapper {
               left: 85px;
+              width: 75%;
+              .mat-form-field-label {
+                width: auto;
+              }
             }
             .iti--allow-dropdown {
               .iti__flag-container {

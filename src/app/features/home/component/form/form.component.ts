@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocationService } from 'src/app/core/commonservices/location.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -11,11 +12,19 @@ export class FormComponent implements OnInit {
   generatedLink: any;
   copymsg: boolean = false;
   DialCode: any;
-  constructor(private _snackBar: MatSnackBar) {}
+  CountryCode: any;
+  constructor(
+    private _snackBar: MatSnackBar,
+    private LocServ: LocationService
+  ) {}
+
   ngOnInit(): void {
     this.WaLinkForm = new FormGroup({
       wanumber: new FormControl('', [Validators.required]),
       watext: new FormControl('Hello there!'),
+    });
+    this.LocServ.get().subscribe((res) => {
+      this.CountryCode = res.country_code.toLowerCase();
     });
   }
 
@@ -62,8 +71,12 @@ export class FormComponent implements OnInit {
       });
     }, 100);
   }
+
   telInputObject(obj: any) {
-    this.DialCode = obj.s.dialCode;
+    setTimeout(() => {
+      this.DialCode = obj.s.dialCode;
+      obj.setCountry(this.CountryCode);
+    }, 500);
   }
   onCountryChange(event: any) {
     this.DialCode = event.dialCode;

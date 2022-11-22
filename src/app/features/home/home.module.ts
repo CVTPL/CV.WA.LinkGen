@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StepsComponent } from './component/steps/steps.component';
 import { Ng2TelInputModule } from 'ng2-tel-input';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [HomeComponent, FormComponent, StepsComponent],
@@ -29,6 +30,8 @@ import { Ng2TelInputModule } from 'ng2-tel-input';
     MatIconModule,
     MatSnackBarModule,
     Ng2TelInputModule,
+    HttpClientModule,
   ],
+  providers: [HttpClient],
 })
 export class HomeModule {}
