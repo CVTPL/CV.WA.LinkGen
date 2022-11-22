@@ -151,6 +151,24 @@ body {
         @media screen and (max-width: 991px) {
           min-height: auto;
         }
+        .wanumber {
+          .mat-form-field {
+            .mat-form-field-label-wrapper {
+              left: 85px;
+              width: 75%;
+              .mat-form-field-label {
+                width: auto;
+              }
+            }
+            .iti--allow-dropdown {
+              .iti__flag-container {
+                .iti__selected-flag {
+                  background-color: transparent;
+                }
+              }
+            }
+          }
+        }
       }
       @media screen and (max-width: 480px) {
         margin: 20px 0;

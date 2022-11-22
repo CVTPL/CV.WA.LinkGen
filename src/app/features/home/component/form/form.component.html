@@ -5,16 +5,23 @@
   <div class="form-div">
     <form class="form-tag" [formGroup]="WaLinkForm" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col">
+        <div class="col wanumber">
           <mat-form-field appearance="outline">
             <mat-label>Your WhatsApp Number</mat-label>
             <input
               matInput
               placeholder="Enter value"
               formControlName="wanumber"
-              type="number"
               (keypress)="keyPressNumbers($event)"
               (paste)="onPaste($event)"
+              ng2TelInput
+              [ng2TelInputOptions]="{
+                autoHideDialCode: false,
+                initialCountry: 'us',
+                separateDialCode: true
+              }"
+              (intlTelInputObject)="telInputObject($event)"
+              (countryChange)="onCountryChange($event)"
             />
             <mat-error
               *ngIf="wanumber.errors?.['required'] && (wanumber.touched || wanumber.dirty)"

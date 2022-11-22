@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './core/component/header/header.component';
 import { FooterComponent } from './core/component/footer/footer.component';
 import { FeaturesComponent } from './features/features.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FeaturesComponent } from './features/features.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

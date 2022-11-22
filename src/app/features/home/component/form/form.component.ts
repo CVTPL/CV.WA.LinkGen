@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocationService } from 'src/app/core/commonservices/location.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -10,12 +11,20 @@ export class FormComponent implements OnInit {
   WaLinkForm!: FormGroup;
   generatedLink: any;
   copymsg: boolean = false;
-  constructor(private _snackBar: MatSnackBar) {}
+  DialCode: any;
+  CountryCode: any;
+  constructor(
+    private _snackBar: MatSnackBar,
+    private LocServ: LocationService
+  ) {}
 
   ngOnInit(): void {
     this.WaLinkForm = new FormGroup({
       wanumber: new FormControl('', [Validators.required]),
       watext: new FormControl('Hello there!'),
+    });
+    this.LocServ.get().subscribe((res) => {
+      this.CountryCode = res.country_code.toLowerCase();
     });
   }
 
@@ -24,7 +33,7 @@ export class FormComponent implements OnInit {
     var querystring = '?text=';
     var numval = this.wavalue.controls['wanumber'].value;
     var textval = this.wavalue.controls['watext'].value;
-    var final = urlprefix + numval + querystring + textval;
+    var final = urlprefix + this.DialCode + numval + querystring + textval;
     this.generatedLink = final;
   }
 
@@ -55,11 +64,33 @@ export class FormComponent implements OnInit {
   }
   onPaste(event: ClipboardEvent) {
     var pastedValue = event.clipboardData?.getData('text');
-    var newVal = pastedValue?.replace(/[^A-Z0-9]+/gi, '');
+
+    var firstchar = pastedValue?.substring(0, 1);
+
+    if (firstchar == '+') {
+      var newpastedvalue = pastedValue?.substring(pastedValue.indexOf(' ') + 1);
+    } else if (firstchar == '0') {
+      var newpastedvalue = pastedValue?.substring(pastedValue.indexOf('0') + 1);
+    } else {
+      var newpastedvalue = pastedValue;
+    }
+
+    var newVal = newpastedvalue?.replace(/[^A-Z0-9]+/gi, '');
+
     setTimeout(() => {
       this.WaLinkForm.patchValue({
         wanumber: newVal,
       });
     }, 100);
+  }
+
+  telInputObject(obj: any) {
+    setTimeout(() => {
+      this.DialCode = obj.s.dialCode;
+      obj.setCountry(this.CountryCode);
+    }, 500);
+  }
+  onCountryChange(event: any) {
+    this.DialCode = event.dialCode;
   }
 }
