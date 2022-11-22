@@ -64,7 +64,19 @@ export class FormComponent implements OnInit {
   }
   onPaste(event: ClipboardEvent) {
     var pastedValue = event.clipboardData?.getData('text');
-    var newVal = pastedValue?.replace(/[^A-Z0-9]+/gi, '');
+
+    var firstchar = pastedValue?.substring(0, 1);
+
+    if (firstchar == '+') {
+      var newpastedvalue = pastedValue?.substring(pastedValue.indexOf(' ') + 1);
+    } else if (firstchar == '0') {
+      var newpastedvalue = pastedValue?.substring(pastedValue.indexOf('0') + 1);
+    } else {
+      var newpastedvalue = pastedValue;
+    }
+
+    var newVal = newpastedvalue?.replace(/[^A-Z0-9]+/gi, '');
+
     setTimeout(() => {
       this.WaLinkForm.patchValue({
         wanumber: newVal,
